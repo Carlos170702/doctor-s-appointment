@@ -1,0 +1,22 @@
+.NavBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.NavBar__Logo{
+    width: 100px;
+    height: 100px;
+}
+
+.NavBar__Logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.NavBar__hamburger{
+    color: rgb(15, 51, 255);
+    font-size: 1.5rem;
+    font-weight: 900;
+    cursor: pointer;
+}

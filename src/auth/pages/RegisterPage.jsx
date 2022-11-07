@@ -18,7 +18,7 @@ export const RegisterPage = () => {
               {/* <img src="" alt="" /> */}
             </div>
             <div className="login__tiitle">
-              <h1>Login</h1>
+              <h1>registro</h1>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ export const RegisterPage = () => {
             <div className='login__others'>
               <div className="login__other">
                 <label className='login__data__label'>Ya tiene cuenta? </label>
-                <a href="#" className='login__data__forgotPassword'>Iniciar seccion</a>
+                <a href="#" className='login__data__forgotPassword'>Iniciar sesión</a>
               </div>
             </div>
 

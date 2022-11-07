@@ -1,0 +1,59 @@
+:root {
+    --fontPrimary: 'Kanit', sans-serif;
+    --fontSecundary: 'Roboto Mono', monospace;
+}
+
+.cita{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.cita__img{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.cita__img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cita__content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    flex: 1;
+}
+
+.cita__time{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cita__tittle{
+    color: black;
+    font-family: var(--fontPrimary);
+}
+
+.cita__info{
+    color: black;
+    font-family: var(--fontPrimary);
+    letter-spacing: 1px;
+}
+
+@media (max-width: 550px) {
+    .cita{
+        flex-direction: column;
+    }
+}

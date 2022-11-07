@@ -1,22 +1,99 @@
-.NavBar{
+:root {
+    --fontPrimary: 'Kanit', sans-serif;
+    --fontSecundary: 'Roboto Mono', monospace;
+}
+
+.NavBar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 10px 0px;
+    position: relative;
 }
 
-.NavBar__Logo{
-    width: 100px;
-    height: 100px;
+.NavBar__Logo {
+    width: 120px;
+    height: 70px;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 
-.NavBar__Logo img{
+.NavBar__Logo p {
+    color: black;
+    font-family: arial;
+    font-size: 30px;
+    font-family: var(--fontSecundary);
+}
+
+.NavBar__Logo img {
     width: 100%;
     height: 100%;
 }
 
-.NavBar__hamburger{
+.NavBar__hamburger {
     color: rgb(15, 51, 255);
     font-size: 1.5rem;
     font-weight: 900;
     cursor: pointer;
+    display: none;
+}
+
+.NavBar__enlaces {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.NavBar__enlaces a {
+    color: black;
+    text-decoration: none;
+    font-family: var(--fontPrimary);
+}
+
+.NavBar__enlaces a:hover {
+    border-bottom: 1px solid black;
+}
+
+@media (max-width: 800px) {
+    .NavBar__hamburger {
+        display: inline;
+    }
+
+    .NavBar__enlaces {
+        display: none;
+    }
+
+    .NavBar__enlaces--position {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #00000070;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: var(--fontPrimary);
+        animation: alternate nav 1s;
+    }
+
+    .NavBar__enlaces--position a {
+        color: white;
+        letter-spacing: 2px;
+    }
+}
+
+@keyframes nav {
+    0% {
+        transform: translateX(100px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }

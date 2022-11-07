@@ -1,11 +1,13 @@
 import './App.css'
-import { NavBar } from './components/NavBar'
+import { LoginPage } from './auth/pages/LoginPage'
+import { RegisterPage } from './auth/pages/RegisterPage'
 
 function App() {
   return (
     <div className="App">
       <div className="container">
-        <NavBar />
+        <RegisterPage />
+        <LoginPage />
       </div>
     </div>
   )

@@ -11,14 +11,16 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    flex-direction: column;
     gap: 1rem;
+    background-color: #ffffff50;
 }
 
 .citas__content {
     border-radius: 3px;
     overflow: hidden;
     height: 500px;
-    width: min(100%, 600px);
+    width: 100%;
 }
 
 .citas__pendientes {
@@ -41,21 +43,22 @@
 
 .citas__options {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
 .citas__opcion {
-    color: blak;
-    background-color: white;
-    box-shadow: inset 0px 0px 5px 0px rgb(107, 106, 106);
+    color: black;
+    background-color: #a59bff;
+    box-shadow: inset -.5px -.5px 5px 0px white;
     border-radius: 20px;
     border: none;
     padding: 10px;
     min-width: 140px;
     font-family: var(--fontSecundary);
+    cursor: pointer;
 }
 
 .citas__opcion:hover {
@@ -64,7 +67,7 @@
 }
 
 @media (max-width: 900px) {
-    .citas__options{
+    .citas__options {
         width: 100%;
         flex-direction: row;
         flex-wrap: wrap;

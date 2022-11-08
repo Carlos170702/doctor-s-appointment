@@ -13,7 +13,7 @@
 .login__content{
     width: min(95%, 600px);
     margin: 0 auto;
-    background-color: rgb(113, 203, 255);
+    background-color: rgb(86 99 165 / 75%);
     padding: 20px;
     border-radius: 10px;
 }
@@ -33,7 +33,7 @@
 }
 
 .login__tiitle{
-    color: rgb(89, 89, 249);   
+    color: white;   
     font-family: var(--fontPrimary); 
     font-size: 25px;
 }

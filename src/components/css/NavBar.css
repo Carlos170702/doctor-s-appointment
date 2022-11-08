@@ -34,7 +34,7 @@
 }
 
 .NavBar__hamburger {
-    color: rgb(15, 51, 255);
+    color: wheat;
     font-size: 1.5rem;
     font-weight: 900;
     cursor: pointer;
@@ -49,7 +49,7 @@
 }
 
 .NavBar__enlaces a {
-    color: black;
+    color: white;
     text-decoration: none;
     font-family: var(--fontPrimary);
 }
@@ -75,15 +75,15 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-color: #00000070;
+        background-color: #ffffff70;
         padding: 10px;
         border-radius: 5px;
         font-family: var(--fontPrimary);
         animation: alternate nav 1s;
-    }
+        }
 
     .NavBar__enlaces--position a {
-        color: white;
+        color: rgb(0, 0, 0);
         letter-spacing: 2px;
     }
 }

@@ -1,11 +1,13 @@
 //components
 import { NavBar } from "../../components/NavBar"
 import { Cita } from "../components/Cita"
-
+//hook
+import { useCitasPendientesPage } from "../hooks/useCitasPendientesPage"
 //css
-import '../css/CitasPage.css'
+import '../css/CitasPendientesPage.css'
 
 export const CitasPage = () => {
+    const { } = useCitasPendientesPage()
     return (
         <>
             <NavBar />
@@ -14,17 +16,16 @@ export const CitasPage = () => {
                     <h2 className="citas__pendientes">citas</h2>
                     <div className="citas__count">
                         {
-                            [1,2,3,4,5].map( (item, index) => (
+                            [1, 2, 3, 4, 5].map((item, index) => (
                                 <Cita key={index} />
-                            )) 
+                            ))
                         }
                     </div>
                 </div>
                 <div className="citas__options">
-                    <button className="citas__opcion">Nueva cita</button>
+                    <button className="citas__opcion">Confirmar cita</button>
                     <button className="citas__opcion">Cancelar cita</button>
                     <button className="citas__opcion">Actualizar cita</button>
-                    <button className="citas__opcion">Todas las citas</button>
                 </div>
             </div>
         </>

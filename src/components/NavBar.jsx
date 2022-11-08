@@ -1,6 +1,14 @@
+//assets
+import image from './logo.png'
+
+//icon
 import { FiAlignJustify, FiX } from 'react-icons/fi'
-import './css/NavBar.css'
+
+//hook
 import { useNavBar } from './hook/useNavBar'
+
+//css
+import './css/NavBar.css'
 
 export const NavBar = () => {
     const { active, handleMenu } = useNavBar()
@@ -8,8 +16,7 @@ export const NavBar = () => {
     return (
         <div className='NavBar'>
             <div className="NavBar__Logo">
-                <p>citas</p>
-                {/* <img src="" alt="image logo" /> */}
+                <img src={image} alt="image logo" />
             </div>
             <div className={`NavBar__enlaces ${active ? 'NavBar__enlaces--position' : ''}`}>
                 <a href="#">citas</a>

@@ -10,15 +10,15 @@
     height: 100vh;
 }
 
-.login__content{
+.login__content {
     width: min(95%, 600px);
     margin: 0 auto;
-    background-color: rgb(113, 203, 255);
+    background-color: rgb(86 99 165 / 75%);
     padding: 20px;
     border-radius: 10px;
 }
 
-.login__Page{
+.login__Page {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -26,19 +26,19 @@
     margin-bottom: 20px;
 }
 
-.login__logo{
+.login__logo {
     width: 100px;
     height: 100px;
     background-color: rgb(255, 145, 145);
 }
 
-.login__tiitle{
-    color: rgb(89, 89, 249);   
-    font-family: var(--fontPrimary); 
+.login__tiitle {
+    color: white;
+    font-family: var(--fontPrimary);
     font-size: 25px;
 }
 
-.login__form{
+.login__form {
     background-color: #ffffff90;
     padding: 50px 30px;
     border-radius: 10px;
@@ -48,7 +48,7 @@
     gap: 10px;
 }
 
-.login__data{
+.login__data {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,24 +58,24 @@
 }
 
 
-.login__data__label{
+.login__data__label {
     width: 110px;
     text-align: right;
     font-family: var(--fontSecundary);
     font-size: medium;
 }
 
-.login__data__getInf{
+.login__data__getInf {
     padding: 5px;
     border: 1px solid #aca7a7;
     border-radius: 10px;
     outline: none;
-    flex: 1;    
+    flex: 1;
     font-size: .8rem;
     font-family: var(--fontSecundary);
 }
 
-.login__data__enviar{
+.login__data__enviar {
     padding: 10px 7px;
     border: none;
     background-color: rgb(178, 109, 244);
@@ -91,16 +91,16 @@
     letter-spacing: 2px;
 }
 
-.login__data__login{
+.login__data__login {
     font-size: 18px;
 }
 
-.login__others{
+.login__others {
     width: 100%;
     text-align: center;
 }
 
-.login__data__forgotPassword{
+.login__data__forgotPassword {
     text-decoration: none;
     color: blue;
 }

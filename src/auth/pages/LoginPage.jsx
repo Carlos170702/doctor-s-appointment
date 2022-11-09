@@ -1,3 +1,7 @@
+//assets
+import image from '../../components/logo.png'
+
+//icons
 import { FiLogIn } from 'react-icons/fi'
 
 //hooks
@@ -8,13 +12,14 @@ import '../css/loginPage.css'
 
 export const LoginPage = () => {
     const { email, password, onInputChange } = useLoginPage()
+    console.log(password)
     return (
         <>
             <div className="login">
                 <div className="login__content">
                     <div className="login__Page">
                         <div className="login__logo">
-                            {/* <img src="" alt="" /> */}
+                            <img src={image} alt="imagen logo" />
                         </div>
                         <div className="login__tiitle">
                             <h1>Login</h1>
@@ -31,6 +36,7 @@ export const LoginPage = () => {
                                 placeholder='Correo'
                                 onChange={onInputChange}
                                 value={email}
+                                autoComplete={email}
                             />
                         </div>
                         <div className="login__data">
@@ -42,6 +48,7 @@ export const LoginPage = () => {
                                 placeholder='Password'
                                 onChange={onInputChange}
                                 value={password}
+                                autoComplete={password}
                             />
                         </div>
                         <div className="login__data">

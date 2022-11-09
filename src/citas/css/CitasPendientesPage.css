@@ -5,6 +5,7 @@
 
 .citas {
     margin-top: 30px;
+    margin-bottom: 20px;
     box-shadow: 0px 0px 3px 0px #00000050;
     padding: 15px;
     border-radius: 5px;
@@ -51,7 +52,6 @@
 
 .citas__opcion {
     color: black;
-    background-color: #a59bff;
     box-shadow: inset -.5px -.5px 5px 0px white;
     border-radius: 20px;
     border: none;
@@ -59,6 +59,10 @@
     min-width: 140px;
     font-family: var(--fontSecundary);
     cursor: pointer;
+}
+
+.citas__opcion--background {
+    background-color: #a59bff;
 }
 
 .citas__opcion:hover {

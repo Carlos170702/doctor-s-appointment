@@ -1,0 +1,20 @@
+:root {
+    --fontPrimary: 'Kanit', sans-serif;
+    --fontSecundary: 'Roboto Mono', monospace;
+}
+
+.citas__content__tittle__button {
+    display: flex;
+    background-color: rgb(34, 61, 142);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.citas__tittle {
+    flex: 1;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-family: var(--fontSecundary);
+    letter-spacing: 2px;
+}

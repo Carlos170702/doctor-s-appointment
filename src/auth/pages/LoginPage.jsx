@@ -60,7 +60,6 @@ export const LoginPage = () => {
 
                         <div className='login__others'>
                             <div className="login__other">
-                                <label className='login__data__label'>Olvidaste tu contraseña? </label>
                                 <a href="#" className='login__data__forgotPassword'>recupar contraseña</a>
                             </div>
                             <div className="login__other">

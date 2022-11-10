@@ -7,7 +7,6 @@ import '../css/CitaClient.css'
 
 //hook
 import { useCitaClient } from '../hooks/useCitaClient'
-import { NewCita } from './NewCita'
 
 export const CitaClientPage = () => {
   const { } = useCitaClient()

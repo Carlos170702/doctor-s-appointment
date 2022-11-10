@@ -9,8 +9,8 @@ export const NewCita = () => {
 
     return (
         <>
-            <div className="citas newCita">
-                <div className="citas__content" >
+            <div className="newCita">
+                <div className="newCita__content" >
                     <h2 className="citas__pendientes">Nueva cita</h2>
                     <form className="newCita__form">
                         <div className="newCita__data">

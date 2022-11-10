@@ -13,10 +13,13 @@
     background-position: center;
     min-height: 100vh;
     overflow: hidden;
+    position: relative;
 }
 
 .container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     width: min(90%, 1200px);
     margin: 0 auto;
+    min-height: 100vh;
 }

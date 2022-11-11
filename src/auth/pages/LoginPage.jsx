@@ -11,8 +11,8 @@ import { useLoginPage } from '../hooks/useLoginPage'
 import '../css/loginPage.css'
 
 export const LoginPage = () => {
-    const { email, password, onInputChange } = useLoginPage()
-    console.log(password)
+    const { email, password, onInputChange, handleLogin } = useLoginPage()
+    
     return (
         <>
             <div className="login">
@@ -52,7 +52,11 @@ export const LoginPage = () => {
                             />
                         </div>
                         <div className="login__data">
-                            <button type='submit' className='login__data__enviar'>
+                            <button
+                                type='submit'
+                                className='login__data__enviar'
+                                onClick={(e) => handleLogin(e)}
+                            >
                                 Entrar
                                 <FiLogIn className='login__data__login' />
                             </button>

@@ -1,6 +1,6 @@
-const { default: axios } = require("axios")
+import axios from "axios"
 
-const getUser = async() =>{
+export const getData = async(options) =>{
     const data = await axios.request(options)
     
     return data

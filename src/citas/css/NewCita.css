@@ -12,12 +12,31 @@
     margin: 0;
     display: flex;
     align-items: center;
+    background-color: #030303d6;
+}
+
+.inactive {
+    display: none;
+}
+.newCita__icon {
+    color: black;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
 }
 
 .newCita__content {
     height: auto;
     width: min(90%, 1000px);
     margin: 0 auto;
+    border-radius: 10px;
 }
 
 .newCita__form {
@@ -52,7 +71,7 @@ textarea,
     width: 100%;
     border: none;
     border-radius: 10px;
-    padding: 10px;
+    padding: 5px;
     outline: none;
     font-family: var(--fontPrimary);
     font-size: 1rem;

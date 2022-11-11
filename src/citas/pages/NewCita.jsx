@@ -1,3 +1,6 @@
+//icons 
+import { FiX } from 'react-icons/fi'
+
 //hook
 import { useNewCita } from '../hooks/useNewCita'
 
@@ -5,11 +8,12 @@ import { useNewCita } from '../hooks/useNewCita'
 import '../css/NewCita.css'
 
 export const NewCita = () => {
-    const { } = useNewCita()
+    const { active, handleActive } = useNewCita()
 
     return (
         <>
-            <div className="newCita">
+            <div className={`${active ? 'newCita' : 'inactive'}`}>
+                <FiX className='newCita__icon' onClick={handleActive} />
                 <div className="newCita__content" >
                     <h2 className="citas__pendientes">Nueva cita</h2>
                     <form className="newCita__form">

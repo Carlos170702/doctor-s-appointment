@@ -1,6 +1,6 @@
 //components
-import { NavBar } from '../../components/NavBar'
 import { Cita } from '../components/Cita'
+import { NewCita } from './NewCita'
 
 //css
 import '../css/CitaClient.css'
@@ -13,7 +13,7 @@ export const CitaClientPage = () => {
 
   return (
     <>
-      <NavBar />
+      <NewCita />
       <div className="citas">
         <div className="citas__content" >
           <div className='citas__content__tittle__button'>

@@ -12,7 +12,7 @@ export const NewCita = ({ handleNewCita }) => {
 
     return (
         <>
-            <div className='newCita'>
+            <div className='newCita animate__animated animate animate__backInLeft'>
                 <FiX className='newCita__icon' onClick={handleNewCita} />
                 <div className="newCita__content" >
                     <h2 className="citas__pendientes">Nueva cita</h2>

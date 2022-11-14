@@ -17,8 +17,8 @@ export const CitaClientPage = () => {
 
   return (
     <>
-        <NavBar />
-        {
+      <NavBar />
+      {
         activeNew && <NewCita handleNewCita={handleNewCita} />
       }
       <div className="citas">

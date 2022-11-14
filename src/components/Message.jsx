@@ -6,7 +6,7 @@ import './css/Message.css'
 export const Message = ({ message, status }) => {
 
     return (
-        <div className="message">
+        <div className="message animate__animated animate animate__backInLeft">
             <div className='message__content login__message'>
                 <ol>
                     {

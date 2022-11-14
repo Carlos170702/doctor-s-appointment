@@ -6,12 +6,16 @@ import { FiLogOut } from "react-icons/fi"
 //css
 import '../css/registerPage.css'
 import { Link } from "react-router-dom"
+import { Message } from "../../components/Message"
+import { Loading } from "../../components/Loading"
 
 export const RegisterPage = () => {
-  const { name, last__name, email, password, number, onInputChange, handleRegister } = useRegisterPage()
-
+  const { data, isLoading, message, name, last__name, email, password, number, onInputChange, handleRegister } = useRegisterPage()
   return (
     <>
+      {
+        isLoading && <Loading />
+      }
       <div className="login">
         <div className="login__content">
           <div className="login__Page">
@@ -41,7 +45,7 @@ export const RegisterPage = () => {
                 type="text"
                 className='login__data__getInf'
                 name='last__name'
-                placeholder='Nombre'
+                placeholder='Apellido'
                 onChange={onInputChange}
                 value={last__name}
               />
@@ -79,6 +83,10 @@ export const RegisterPage = () => {
                 value={number}
               />
             </div>
+            {
+              message?.status && < Message message={message} status={data.Status} />
+            }
+
             <div className="login__data">
               <button
                 type='submit'

@@ -4,7 +4,7 @@ import { InfPerson } from './InfPerson'
 
 export const Cita = () => {
     return (
-        <div className="cita">
+        <div className="cita animate__animated animate__fadeInDown">
 
             <div className="cita__img">
                 <img src="https://i.pinimg.com/474x/92/c7/c7/92c7c750120016c44ec0b16837645c58.jpg" alt="" />

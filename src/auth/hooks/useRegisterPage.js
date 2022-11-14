@@ -1,7 +1,16 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 import { useForm } from "../../hooks/useForm"
 
 export const useRegisterPage = () => {
+    const navigate = useNavigate()
+    // const [message, setMessage] = useState({
+    //     message: {
+    //         status: false,
+    //         error: "",
+    //     },
+    // })
     const { formState, onInputChange } = useForm({
         name: '',
         last__name: '',
@@ -14,24 +23,14 @@ export const useRegisterPage = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
 
-        var formdata = new FormData();
+        const formdata = new FormData();
         formdata.append("username", formState?.name);
         formdata.append("lastname", formState?.last__name);
         formdata.append("rol", 'client');
         formdata.append("phone", formState?.number);
         formdata.append("email", formState?.email);
         formdata.append("password", formState?.password);
-
-        // {
-        //   "username":"carlos",
-        //   "lastname":"perez",
-        //   "rol":"client",
-        //   "phone":"269346",
-        //   "email":"prueba2@gmail.com",
-        //   "password":"123456"
-        //   }
-
-        var requestOptions = {
+        const requestOptions = {
             method: "POST",
             body: formdata,
         };
@@ -41,18 +40,20 @@ export const useRegisterPage = () => {
             requestOptions
         );
 
-        console.log(response)
-
+        console.log(response);
         if (response?.Status) {
-            login();
             localStorage.setItem("user", JSON.stringify(response.Data));
             setTimeout(() => {
-                navigate("/client", { replace: true });
+                navigate("/login", { replace: true });
             }, 2000);
+            return
         }
     }
 
     return {
+        data,
+        isLoading,
+        message,
         ...formState,
         onInputChange,
         handleRegister

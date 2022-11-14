@@ -9,9 +9,10 @@ import { useNavBar } from './hook/useNavBar'
 
 //css
 import './css/NavBar.css'
+import { Link } from 'react-router-dom'
 
 export const NavBar = () => {
-    const { active, handleMenu } = useNavBar()
+    const { active, handleMenu, handleLogout } = useNavBar()
 
     return (
         <nav className='NavBar'>
@@ -19,12 +20,14 @@ export const NavBar = () => {
                 <img src={image} alt="image logo" />
             </div>
             <div className={`NavBar__enlaces ${active ? 'NavBar__enlaces--position' : ''}`}>
-                <a href="#">citas</a>
-                <a href="#">perfil</a>
-                <a href="#">nueva cita</a>
+                <Link to={'/client'}>citas</Link>
+                <Link to={'/perfil'}>perfil</Link>
                 <button
+                    onClick={handleLogout}
                     className='NavBar__logout'
-                >Cerrar seccion</button>
+                >
+                    Cerrar seccion
+                </button>
             </div>
             {
                 active

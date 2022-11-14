@@ -4,10 +4,10 @@ import { AuthContext } from "../context/authContext"
 
 export const PublicRoutes = ({ children }) => {
     const { state } = useContext(AuthContext)
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
-        state.logged && navigate('/client', { replace: true })
+        state.logged === true && navigate('/client', { replace: true })
         return
     }, [])
 

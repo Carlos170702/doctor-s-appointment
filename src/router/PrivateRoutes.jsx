@@ -7,7 +7,7 @@ export const PrivateRoutes = ({ children }) => {
     const { state } = useContext(AuthContext)
 
     useEffect(() => {
-        !state.logged && navigate('/login'.replace, { replace: true })
+        state.logged === false && navigate('/login', { replace: true })
         return
     }, [])
 

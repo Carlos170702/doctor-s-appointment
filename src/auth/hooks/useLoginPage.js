@@ -5,6 +5,8 @@ import { useFetch } from "../../hooks/useFetch";
 import { useForm } from "../../hooks/useForm";
 
 export const useLoginPage = () => {
+  const { login } = useContext(AuthContext)
+
   const navigate = useNavigate();
   const { formState, onInputChange } = useForm({
     email: "",
@@ -31,6 +33,7 @@ export const useLoginPage = () => {
     );
 
     if (response?.Status) {
+      login();
       localStorage.setItem("user", JSON.stringify(response.Data));
       setTimeout(() => {
         navigate("/client", { replace: true });

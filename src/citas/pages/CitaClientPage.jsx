@@ -8,14 +8,17 @@ import '../css/CitaClient.css'
 //hook
 import { useCitaClient } from '../hooks/useCitaClient'
 import { NavBar } from '../../components/NavBar'
+import { AuthContext } from '../../context/authContext'
+import { useContext } from 'react'
 
 export const CitaClientPage = () => {
   const { activeNew, handleNewCita } = useCitaClient()
+  const state = useContext(AuthContext)
 
   return (
     <>
-      <NavBar />
-      {
+        <NavBar />
+        {
         activeNew && <NewCita handleNewCita={handleNewCita} />
       }
       <div className="citas">

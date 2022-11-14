@@ -8,7 +8,7 @@ import '../css/registerPage.css'
 import { Link } from "react-router-dom"
 
 export const RegisterPage = () => {
-  const { name, last__name, email, password, number, onInputChange } = useRegisterPage()
+  const { name, last__name, email, password, number, onInputChange, handleRegister } = useRegisterPage()
 
   return (
     <>
@@ -80,7 +80,11 @@ export const RegisterPage = () => {
               />
             </div>
             <div className="login__data">
-              <button type='submit' className='login__data__enviar'>
+              <button
+                type='submit'
+                className='login__data__enviar'
+                onClick={handleRegister}
+              >
                 Entrar
                 <FiLogOut className='login__data__login' />
               </button>

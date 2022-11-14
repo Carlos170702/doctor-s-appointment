@@ -5,7 +5,6 @@ import { authReducer } from "./authReducer"
 
 const init = () => {
     const user = JSON.parse(localStorage.getItem('user'))
-
     return {
         logged: !!user,
     }
@@ -14,8 +13,22 @@ const init = () => {
 export const AuthProvider = ({ children }) => {
     const [state, dispatch] = useReducer(authReducer, {}, init)
 
+    const login = () => {
+        dispatch({
+            type: types.login,
+            payload: true
+        })
+    }
+
+    const logout = () => {
+        dispatch({
+            type: types.logout,
+            payload: false
+        })
+    }
+
     return (
-        <AuthContext.Provider value={{ state }}>
+        <AuthContext.Provider value={{ state, login, logout }}>
             {children}
         </AuthContext.Provider>
     )

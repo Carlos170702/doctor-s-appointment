@@ -7,13 +7,13 @@ import { useNewCita } from '../hooks/useNewCita'
 //css
 import '../css/NewCita.css'
 
-export const NewCita = () => {
-    const { active, handleActive } = useNewCita()
+export const NewCita = ({ handleNewCita }) => {
+    const { } = useNewCita();
 
     return (
         <>
-            <div className={`${active ? 'newCita' : 'inactive'}`}>
-                <FiX className='newCita__icon' onClick={handleActive} />
+            <div className='newCita'>
+                <FiX className='newCita__icon' onClick={handleNewCita} />
                 <div className="newCita__content" >
                     <h2 className="citas__pendientes">Nueva cita</h2>
                     <form className="newCita__form">

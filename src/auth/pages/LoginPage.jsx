@@ -1,3 +1,10 @@
+//components
+import { Loading } from '../../components/Loading'
+import { Message } from '../../components/Message'
+
+// react-router
+import { Link } from 'react-router-dom'
+
 //assets
 import image from '../../components/logo.png'
 
@@ -11,10 +18,13 @@ import { useLoginPage } from '../hooks/useLoginPage'
 import '../css/loginPage.css'
 
 export const LoginPage = () => {
-    const { email, password, onInputChange, handleLogin } = useLoginPage()
-    
+    const { data, email, password, isLoading, message, onInputChange, handleLogin } = useLoginPage();
+
     return (
         <>
+            {
+                isLoading && <Loading />
+            }
             <div className="login">
                 <div className="login__content">
                     <div className="login__Page">
@@ -30,6 +40,7 @@ export const LoginPage = () => {
                         <div className="login__data">
                             <label className='login__data__label'>Correo:</label>
                             <input
+                                required
                                 type="text"
                                 className='login__data__getInf'
                                 name='email'
@@ -42,6 +53,7 @@ export const LoginPage = () => {
                         <div className="login__data">
                             <label className='login__data__label'>contraseña:</label>
                             <input
+                                required
                                 type="password"
                                 className='login__data__getInf'
                                 name='password'
@@ -51,11 +63,14 @@ export const LoginPage = () => {
                                 autoComplete={password}
                             />
                         </div>
+                        {
+                            message.status && <Message status={data?.Status} message={message} className='login__message' />
+                        }
                         <div className="login__data">
                             <button
                                 type='submit'
                                 className='login__data__enviar'
-                                onClick={(e) => handleLogin(e)}
+                                onClick={handleLogin}
                             >
                                 Entrar
                                 <FiLogIn className='login__data__login' />
@@ -64,11 +79,8 @@ export const LoginPage = () => {
 
                         <div className='login__others'>
                             <div className="login__other">
-                                <a href="#" className='login__data__forgotPassword'>recupar contraseña</a>
-                            </div>
-                            <div className="login__other">
                                 <label className='login__data__label'>No tienes cuenta? </label>
-                                <a href="#" className='login__data__forgotPassword'>Crear cuenta</a>
+                                <Link to={'/register'} className='login__data__forgotPassword'>Crear cuenta</Link>
                             </div>
                         </div>
 
@@ -78,3 +90,5 @@ export const LoginPage = () => {
         </>
     )
 }
+
+

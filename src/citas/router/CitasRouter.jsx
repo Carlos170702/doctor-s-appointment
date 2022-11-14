@@ -8,7 +8,7 @@ export const CitasRouter = () => {
 
             <Route path="/Client" element={<CitaClientPage />} />
             <Route path="/pending" element={<CitasPage />} />
-            <Route path="/*" element={<Navigate to="/client" />} />
+            <Route path="/*" element={<Navigate to="/login" />} />
 
         </Routes>
     )

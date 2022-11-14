@@ -14,7 +14,7 @@ export const NavBar = () => {
     const { active, handleMenu } = useNavBar()
 
     return (
-        <div className='NavBar'>
+        <nav className='NavBar'>
             <div className="NavBar__Logo">
                 <img src={image} alt="image logo" />
             </div>
@@ -22,12 +22,15 @@ export const NavBar = () => {
                 <a href="#">citas</a>
                 <a href="#">perfil</a>
                 <a href="#">nueva cita</a>
+                <button
+                    className='NavBar__logout'
+                >Cerrar seccion</button>
             </div>
             {
                 active
                     ? <FiX className='NavBar__hamburger' onClick={handleMenu} />
                     : <FiAlignJustify onClick={handleMenu} className='NavBar__hamburger' />
             }
-        </div>
+        </nav>
     )
 }

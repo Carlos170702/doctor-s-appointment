@@ -1,7 +1,17 @@
-import { useNewCita } from "./useNewCita"
+import { useState } from "react";
+import { useNewCita } from "./useNewCita";
 
 export const useCitaClient = () => {
+  const [activeNew, setActiveNew] = useState(false);
 
-    return {
-    }
-}
+  const handleNewCita = () => {
+    setActiveNew(!activeNew)
+  };
+
+  return {
+    //variables
+    activeNew,
+    //metodos
+    handleNewCita,
+  };
+};

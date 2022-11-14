@@ -1,0 +1,66 @@
+:root {
+  --fontPrimary: "Kanit", sans-serif;
+  --fontSecundary: "Roboto Mono", monospace;
+}
+
+.message {
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+  padding: 2px 3px;
+  border-radius: 5px;
+}
+
+.message__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.message__content ol {
+  list-style: none;
+  background-color: white;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 2px;
+}
+
+.message__icon {
+  color: rgb(1, 171, 1);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.message__content ol li {
+  font-family: var(--fontSecundary);
+}
+
+.login__message {
+  align-self: center;
+}
+
+.login__message {
+  animation: viewMessage 1s alternate 1 ease-in;
+}
+
+@keyframes viewMessage {
+  0% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success{
+  color: rgb(1, 171, 1);
+}
+
+.failed{
+  color: rgb(255, 56, 56);
+}

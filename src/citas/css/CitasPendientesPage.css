@@ -56,7 +56,6 @@
 
 .citas__opcion {
     color: black;
-    box-shadow: inset -.5px -.5px 5px 0px white;
     border-radius: 20px;
     border: none;
     padding: 10px;
@@ -70,7 +69,6 @@
 }
 
 .citas__opcion:hover {
-    scale: 1.1;
     transition: 1s;
 }
 

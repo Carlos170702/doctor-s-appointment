@@ -7,18 +7,22 @@ import '../css/CitaClient.css'
 
 //hook
 import { useCitaClient } from '../hooks/useCitaClient'
+import { NavBar } from '../../components/NavBar'
 
 export const CitaClientPage = () => {
-  const { } = useCitaClient()
+  const { activeNew, handleNewCita } = useCitaClient()
 
   return (
     <>
-      <NewCita />
+      <NavBar />
+      {
+        activeNew && <NewCita handleNewCita={handleNewCita} />
+      }
       <div className="citas">
         <div className="citas__content" >
           <div className='citas__content__tittle__button'>
             <h2 className="citas__tittle">Citas</h2>
-            <button className="citas__opcion citas__opcion--background">Nueva cita</button>
+            <button className="citas__opcion citas__opcion--background" onClick={handleNewCita}>Nueva cita</button>
           </div>
           <div className="citas__count">
             <Cita />

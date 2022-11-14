@@ -1,15 +1,18 @@
 import './App.css'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { AppRouter } from './router/AppRouter'
+import { AuthProvider } from './context/authProvider'
 
 
 function App() {
   return (
     <div className="App">
       <div className="container">
-        <BrowserRouter>
-          <AppRouter />
-        </BrowserRouter>
+        <HashRouter>
+          <AuthProvider>
+            <AppRouter />
+          </AuthProvider>
+        </HashRouter>
       </div>
     </div>
   )

@@ -45,17 +45,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .NavBar__enlaces a {
     color: white;
     text-decoration: none;
     font-family: var(--fontPrimary);
+    border-left: 2px solid wheat;
+    padding-left: 10px;
 }
 
 .NavBar__enlaces a:hover {
     border-bottom: 1px solid black;
+}
+
+.NavBar__logout{
+    background-color: white;
+    padding: 7px;
+    border-radius: 15px 0px 15px 0px;
+    border: none;
+    background-color: #a59bff;
+    cursor: pointer;
+    color: white;
+    font-family: var(--fontPrimary);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: .5s ease-out;
+}
+
+.NavBar__logout:hover{
+    background-color: #897cfc;
 }
 
 @media (max-width: 800px) {

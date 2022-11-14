@@ -1,43 +1,49 @@
-import axios from "axios";
-import { useForm } from "../../hooks/useForm"
-import { login } from "../api/authUser";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
+import { useFetch } from "../../hooks/useFetch";
+import { useForm } from "../../hooks/useForm";
 
 export const useLoginPage = () => {
-    const { formState, onInputChange } = useForm({
-        email: '',
-        password: '',
-    })
+  const navigate = useNavigate();
+  const { formState, onInputChange } = useForm({
+    email: "",
+    password: "",
+  });
+  const { data, hasError, isLoading, message, getfetch } = useFetch();
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
+  //metodo de login
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-        var formdata = new FormData();
-        formdata.append("email", "carlitos2@gmail.com");
-        formdata.append("password", "123456");
+    var formdata = new FormData();
+    formdata.append("email", formState?.email);
+    formdata.append("password", formState?.password);
 
-        var requestOptions = {
-            method: 'POST',
-            'mode': 'no-cors',
-            'headers': {
-                'Access-Control-Allow-Origin': '*',
-            },
-            body: formdata,
-        };
+    var requestOptions = {
+      method: "POST",
+      body: formdata,
+    };
 
-        fetch("https://citasapi.onrender.com/users/login/", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+    const response = await getfetch(
+      "https://citasapi.onrender.com/users/login/",
+      requestOptions
+    );
 
-        // const response = await login({
-        //     email: formState.email,
-        //     password: formState.password
-        // })
+    if (response?.Status) {
+      localStorage.setItem("user", JSON.stringify(response.Data));
+      setTimeout(() => {
+        navigate("/client", { replace: true });
+      }, 2000);
     }
+  };
 
-    return {
-        ...formState,
-        onInputChange,
-        handleLogin,
-    }
-}
+  return {
+    data,
+    isLoading,
+    ...formState,
+    message,
+    onInputChange,
+    handleLogin,
+  };
+};

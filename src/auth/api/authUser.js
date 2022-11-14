@@ -1,16 +1,39 @@
-import { getData } from "../../controller/controller";
-
 export const login = async (datas) => {
-    const options = {
-        method: 'POST',
-        url: 'http://citasapi.onrender.com/users/login/',
-        data: { email: 'carlitos2@gmail.com', password: '123456' }
-    };
+  var formdata = new FormData();
+  formdata.append("email", datas?.email);
+  formdata.append("password", datas?.password);
 
-    const data = await getData(options)
+  var requestOptions = {
+    method: "POST",
+    body: formdata,
+  };
 
-    console.log(data)
+  try {
+    const request = await fetch(
+      "https://citasapi.onrender.com/users/login/",
+      requestOptions
+    );
+    const response = await request.json();
 
-    return data;
-}
+    return response;
+  } catch (e) {
+    return e;
+  }
+};
 
+// SUCCESS
+// {
+//   console.log(result);
+//   result.Status
+//     ? localStorage.setItem("rol", JSON.stringify(result?.Data?.rol))
+//     : () => {
+//         setIsLoading(false);
+//         setMessage({
+//           status: true,
+//           message: {
+//             titulo: "user",
+//             error: result.Message,
+//           },
+//         });
+//       };
+// }

@@ -5,6 +5,7 @@ import { FiLogOut } from "react-icons/fi"
 
 //css
 import '../css/registerPage.css'
+import { Link } from "react-router-dom"
 
 export const RegisterPage = () => {
   const { name, last__name, email, password, number, onInputChange } = useRegisterPage()
@@ -88,7 +89,7 @@ export const RegisterPage = () => {
             <div className='login__others'>
               <div className="login__other">
                 <label className='login__data__label'>Ya tiene cuenta? </label>
-                <a href="#" className='login__data__forgotPassword'>Iniciar sesión</a>
+                <Link to={'/login'} className='login__data__forgotPassword'>Iniciar sesión</Link>
               </div>
             </div>
 

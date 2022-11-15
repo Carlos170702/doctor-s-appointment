@@ -13,11 +13,13 @@
     display: flex;
     align-items: center;
     background-color: #030303d6;
+    z-index: 2;
 }
 
 .inactive {
     display: none;
 }
+
 .newCita__icon {
     color: black;
     position: fixed;
@@ -46,6 +48,12 @@
     background-color: #9cd3ff99;
 }
 
+.newCita__date {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .newCita__data {
     width: 100%;
     padding: 10px;
@@ -53,6 +61,11 @@
     gap: 10px;
     display: flex;
     align-items: center;
+}
+
+.newCita__data--time,
+.newCita__data--day {
+    width: 350px;
 }
 
 .newCita__data label {
@@ -63,6 +76,11 @@
     letter-spacing: 1px;
     font-family: var(--fontSecundary);
     text-align: right;
+}
+
+.newCita__data--time label,
+.newCita__data--day label {
+    font-size: 13px;
 }
 
 .newCita__data input,

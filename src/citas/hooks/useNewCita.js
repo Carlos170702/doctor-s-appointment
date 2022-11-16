@@ -16,24 +16,25 @@ export const useNewCita = () => {
   })
   const { data, hasError, isLoading, message, getfetch } = useFetch();
 
-  const handleNewAppointment = async (e) => {
-    console.log(formState);
+  const handleNewAppointment = async (e, datos) => {
     e.preventDefault();
+    console.log(datos);
     var formdata = new FormData();
-    formdata.append("namePatient", formState.namePatient);
-    formdata.append("lastNamePatient", formState.lastNamePatient);
-    formdata.append("emailPatient", formState.emailPatient);
-    formdata.append("phonePatient", formState.phonePatient);
-    formdata.append("descriptionPatient", formState.descriptionPatient);
-    formdata.append("appointmentTime", `${formState.appointmentTime}:00`);
+    formdata.append("namePatient", datos?.name);
+    formdata.append("lastNamePatient", datos?.lastname);
+    formdata.append("emailPatient", datos?.email);
+    formdata.append("phonePatient", datos?.phone);
+    formdata.append("descriptionPatient", datos?.description);
+    formdata.append("appointmentTime", datos.time);
     formdata.append("statustAppointment", "false");
-    formdata.append("dateAppointment", formState.dateAppointment);
+    formdata.append("dateAppointment", datos?.date);
 
     var requestOptions = {
       method: 'POST',
       body: formdata,
       redirect: 'follow'
     };
+
     const data = await getfetch('https://citasapi.onrender.com/users/create_appointment/', requestOptions)
 
     data.Status && handleNewCita()

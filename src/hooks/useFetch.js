@@ -35,7 +35,7 @@ export const useFetch = () => {
           ...state,
         });
       }, 2000);
-
+      console.log(data);
       return data
     } catch (error) {
       setState({

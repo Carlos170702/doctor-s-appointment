@@ -16,7 +16,7 @@ import '../css/NewCita.css'
 
 export const NewCita = ({ handleNewCita }) => {
     const { data, isLoading, message, formState, handleNewAppointment, onInputChange } = useNewCita();
-    const { namePatient, lastNamePatient, emailPatient, phonePatient, descriptionPatient, appointmentTime, dateAppointment } = formState
+    // const { namePatient, lastNamePatient, emailPatient, phonePatient, descriptionPatient, appointmentTime, dateAppointment } = formState
 
     return (
         <>
@@ -38,7 +38,6 @@ export const NewCita = ({ handleNewCita }) => {
                             date: '',
                             time: '',
                             description: '',
-
                         }}
 
                         validate={(values) => {
@@ -61,8 +60,19 @@ export const NewCita = ({ handleNewCita }) => {
                             //phone
                             if (!values.phone) {
                                 errors.phone = 'Dijita tu numero de telefono '
-                            } else if (!/^[0-9]/.test(values.phone))
-                                errors.email = 'numero de telefono no valido'
+                            }
+                            //date
+                            if (!values.date) {
+                                errors.date = 'Debes elegir una fecha '
+                            }
+                            //time
+                            if (!values.time) {
+                                errors.time = 'Debes elegir una hora '
+                            }
+                            //descrption
+                            if (!values.description) {
+                                errors.description = 'Dijita una breve descipcion de los sintomas'
+                            }
 
                             return errors;
                         }}
@@ -135,6 +145,7 @@ export const NewCita = ({ handleNewCita }) => {
                                                 onBlur={handleBlur}
                                                 value={values.date}
                                             />
+                                            {touched && errors.date && <p>{errors.date}</p>}
                                         </div>
                                         <div className="newCita__data newCita__data--time">
                                             <label>Elige la hora</label>
@@ -142,18 +153,21 @@ export const NewCita = ({ handleNewCita }) => {
                                                 type="time"
                                                 name='time'
                                                 list="listalimitestiempo"
+                                                min={9}
+                                                max={16}
                                                 step="600"
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 value={values.time}
                                             />
-                                            <datalist id="listalimitestiempo">
-                                                <option value="08:00"></option>
-                                                <option value="09:00"></option>
-                                                <option value="10:00"></option>
-                                                <option value="03:00"></option>
-                                            </datalist>
+                                            {touched && errors.time && <p>{errors.time}</p>}
                                         </div>
+                                        <datalist id="listalimitestiempo">
+                                            <option value="08:00"></option>
+                                            <option value="09:00"></option>
+                                            <option value="10:00"></option>
+                                            <option value="03:00"></option>
+                                        </datalist>
                                     </div>
                                     <div className="newCita__data">
                                         <label>Descripción de los sintomas:</label>
@@ -165,6 +179,7 @@ export const NewCita = ({ handleNewCita }) => {
                                             onBlur={handleBlur}
                                             value={values.description}
                                         />
+                                        {touched && errors.description && <p>{errors.description}</p>}
                                     </div>
                                     {
                                         message.status && <Message status={data?.Status} message={message} className='login__message' />
@@ -173,7 +188,7 @@ export const NewCita = ({ handleNewCita }) => {
                                         <button
                                             type='submit'
                                             className="citas__opcion citas__opcion--background"
-                                        // onClick={handleNewAppointment}
+                                            onClick={(e) => handleNewAppointment(e, values)}
                                         >Hacer cita</button>
                                     </div>
                                 </form>

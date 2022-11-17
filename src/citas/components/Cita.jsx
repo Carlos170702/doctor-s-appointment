@@ -19,6 +19,7 @@ export const Cita = ({ data }) => {
                 <div className="cita__content">
                     {
                         [
+                            { name: "id", info: data?.id },
                             { name: "Nombre", info: `${data?.namePatient}  ${data?.lastNamePatient}` },
                             { name: "Fecha", info: data?.dateAppointment },
                             { name: "Hora", info: data?.appointmentTime },
@@ -32,11 +33,11 @@ export const Cita = ({ data }) => {
             <div className="citas__options">
                 <button
                     className="citas__opcion citas__opcion--confirm"
+                    onClick={() => confirmAppoint(data.id)}
                 >
                     Confirmar cita</button>
                 <button
                     className="citas__opcion citas__opcion--cancel"
-                    onClick={() => confirmAppoint(data.id)}
                 >
                     Cancelar cita</button>
                 {/* <button

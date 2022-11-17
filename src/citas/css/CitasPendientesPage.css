@@ -30,8 +30,8 @@
 
 .citas__pendientes {
     width: 100%;
-    background-color: rgb(89, 89, 249);
-    color: white;
+    background-color: rgb(197, 197, 197);
+    color: rgb(0, 0, 0);
     text-align: center;
     font-size: 30px;
     font-family: var(--fontSecundary);

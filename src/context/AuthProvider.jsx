@@ -40,19 +40,18 @@ export const AuthProvider = ({ children }) => {
     }
 
     const confirmAppointment = async (id) => {
-
         const formdata = new FormData();
-        formdata.append("statustAppointment", true);
+        formdata.append("statustAppointment", "true");
         const requestOptions = {
-            method: 'PUT',
+            method: "PUT",
             body: formdata,
-            redirect: 'follow'
+            redirect: "follow",
         };
-        const response = await fetch("https://citasapi.onrender.com/users/finish_appointment/16/", requestOptions);
+        const response = await fetch(
+            `https://citasapi.onrender.com/users/finish_appointment/${id}/`,
+            requestOptions
+        );
         const data = await response.json();
-
-        console.log(data)
-
         data.Status && dispatch({ type: types.deleteAppoint, payload: id })
     }
 

@@ -8,7 +8,7 @@ import '../css/CitasPendientesPage.css'
 
 export const CitasPage = () => {
     const { state } = useCitasPendientesPage();
-
+    
     return (
         <>
             <NavBar />

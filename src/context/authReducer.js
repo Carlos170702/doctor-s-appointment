@@ -21,6 +21,13 @@ export const authReducer = (state, action) => {
         citasPending: payload,
       };
 
+    case types.deleteAppoint:
+      const cita = state.citasPending.appointmentsNoFinish.filter( item => item.id != payload);
+      console.log(cita)
+      return {
+        ...state
+      };
+
     default:
       return state;
   }

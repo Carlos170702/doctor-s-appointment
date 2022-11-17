@@ -39,8 +39,25 @@ export const AuthProvider = ({ children }) => {
         })
     }
 
+    const confirmAppointment = async (id) => {
+
+        const formdata = new FormData();
+        formdata.append("statustAppointment", true);
+        const requestOptions = {
+            method: 'PUT',
+            body: formdata,
+            redirect: 'follow'
+        };
+        const response = await fetch("https://citasapi.onrender.com/users/finish_appointment/16/", requestOptions);
+        const data = await response.json();
+
+        console.log(data)
+
+        data.Status && dispatch({ type: types.deleteAppoint, payload: id })
+    }
+
     return (
-        <AuthContext.Provider value={{ state, login, logout, getCitasPending }}>
+        <AuthContext.Provider value={{ state, login, logout, getCitasPending, confirmAppointment }}>
             {children}
         </AuthContext.Provider>
     )

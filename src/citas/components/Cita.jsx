@@ -4,7 +4,11 @@ import { InfPerson } from './InfPerson'
 //css
 import './css/Cita.css'
 
+//hook
+import { useCita } from './hooks/useCita'
+
 export const Cita = ({ data }) => {
+    const { confirmAppoint } = useCita()
 
     return (
         <div className="cita animate__animated animate__fadeInDown">
@@ -32,6 +36,7 @@ export const Cita = ({ data }) => {
                     Confirmar cita</button>
                 <button
                     className="citas__opcion citas__opcion--cancel"
+                    onClick={() => confirmAppoint(data.id)}
                 >
                     Cancelar cita</button>
                 {/* <button

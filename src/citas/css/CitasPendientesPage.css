@@ -45,37 +45,3 @@
     height: 100%;
     overflow-y: scroll;
 }
-
-.citas__options {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.citas__opcion {
-    color: black;
-    border-radius: 20px;
-    border: none;
-    padding: 10px;
-    min-width: 140px;
-    font-family: var(--fontSecundary);
-    cursor: pointer;
-}
-
-.citas__opcion--background {
-    background-color: #a59bff;
-}
-
-.citas__opcion:hover {
-    transition: 1s;
-}
-
-@media (max-width: 900px) {
-    .citas__options {
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-}

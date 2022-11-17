@@ -27,8 +27,20 @@ export const AuthProvider = ({ children }) => {
         })
     }
 
+    const getCitasPending = async () => {
+        const response = await fetch("https://citasapi.onrender.com/users/list_appointment/1/", {
+            method: "GET",
+        });
+        const data = await response.json()
+
+        dispatch({
+            type: types.citasPending,
+            payload: data
+        })
+    }
+
     return (
-        <AuthContext.Provider value={{ state, login, logout }}>
+        <AuthContext.Provider value={{ state, login, logout, getCitasPending }}>
             {children}
         </AuthContext.Provider>
     )

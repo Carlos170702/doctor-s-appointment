@@ -22,7 +22,7 @@ export const NavBar = () => {
             </div>
             <div className={`NavBar__enlaces ${active ? 'NavBar__enlaces--position' : ''}`}>
                 {rol === 'client' && <Link to={'/client'}>citas</Link>}
-                {!rol === 'client' && <Link to={'/pending'}>pendientes</Link>}
+                {rol === 'client' && <Link to={'/pending'}>pendientes</Link>}
                 {rol === 'client' && <Link to={'/Profile'}>perfil</Link>}
                 <button
                     onClick={handleLogout}

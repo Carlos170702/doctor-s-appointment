@@ -25,7 +25,7 @@ export const CitaClientPage = () => {
         <div className="citas__content" >
           <div className='citas__content__tittle__button'>
             <h2 className="citas__tittle">Citas</h2>
-            <button className="citas__opcion citas__opcion--background" onClick={handleNewCita}>Nueva cita</button>
+            <button className="citas__opcion citas__opcion--confirm" onClick={handleNewCita}>Nueva cita</button>
           </div>
           <div className="citas__count">
             <Cita />

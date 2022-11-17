@@ -45,7 +45,7 @@
     height: 100%;
     width: 100%;
     padding: 10px;
-    background-color: #9cd3ff99;
+    background-color: wheat;
 }
 
 .newCita__date {
@@ -61,6 +61,13 @@
     gap: 10px;
     display: flex;
     align-items: center;
+}
+
+.newCita__msgError{
+    font-family: var(--fontSecundary);
+    color: rgb(235, 79, 79);
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .newCita__data--time,

@@ -13,7 +13,6 @@ import { useContext } from 'react'
 
 export const CitaClientPage = () => {
   const { activeNew, handleNewCita } = useCitaClient()
-  const state = useContext(AuthContext)
 
   return (
     <>

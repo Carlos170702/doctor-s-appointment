@@ -15,7 +15,8 @@ import { Loading } from '../../components/Loading';
 import '../css/NewCita.css'
 
 export const NewCita = ({ handleNewCita }) => {
-    const { data, isLoading, message, formState, handleNewAppointment, onInputChange } = useNewCita();
+    const { data, isLoading, message, handleNewAppointment } = useNewCita();
+    const date = new Date(Date.now()).toISOString().split("T")[0].split("-");
 
     return (
         <>
@@ -34,7 +35,7 @@ export const NewCita = ({ handleNewCita }) => {
                             lastname: '',
                             email: JSON.parse(localStorage.getItem('user')).email,
                             phone: '',
-                            date: '',
+                            date: `${date[0]}-${date[1]}-${date[2]}`,
                             time: '',
                             description: '',
                         }}
@@ -77,7 +78,6 @@ export const NewCita = ({ handleNewCita }) => {
                         }}
 
                         onSubmit={() => {
-                            console.log("formilario enviado");
                         }}
                     >
                         {
@@ -118,6 +118,7 @@ export const NewCita = ({ handleNewCita }) => {
                                             onBlur={handleBlur}
                                             placeholder='Dijita tu email'
                                             value={values.email}
+                                            readOnly
                                         />
                                         {touched.email && errors.email && <p className='newCita__msgError' >{errors.email}</p>}
                                     </div>
@@ -125,7 +126,10 @@ export const NewCita = ({ handleNewCita }) => {
                                     <div className="newCita__data">
                                         <label>Numero de telefono:</label>
                                         <input
-                                            type="number"
+                                        maxLength={10}
+                                            type="tel"
+                                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                            aria-required
                                             name='phone'
                                             onChange={handleChange}
                                             onBlur={handleBlur}
@@ -187,7 +191,7 @@ export const NewCita = ({ handleNewCita }) => {
                                         <button
                                             type='submit'
                                             className="citas__opcion citas__opcion--confirm"
-                                            onClick={(e) => handleNewAppointment(e, values)}
+                                            onClick={(e) => handleNewAppointment(e, values, handleNewCita)}
                                         >Hacer cita</button>
                                     </div>
                                 </form>

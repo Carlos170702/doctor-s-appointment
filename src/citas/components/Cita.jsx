@@ -8,7 +8,7 @@ import './css/Cita.css'
 import { useCita } from './hooks/useCita'
 
 export const Cita = ({ data }) => {
-    const { confirmAppoint } = useCita()
+    const { confirmAppoint, deleteAppoint } = useCita()
 
     return (
         <div className="cita animate__animated animate__fadeInDown">
@@ -38,6 +38,7 @@ export const Cita = ({ data }) => {
                     Confirmar cita</button>
                 <button
                     className="citas__opcion citas__opcion--cancel"
+                    onClick={deleteAppoint(data.id)}
                 >
                     Cancelar cita</button>
                 {/* <button

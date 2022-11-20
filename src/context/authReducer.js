@@ -22,12 +22,25 @@ export const authReducer = (state, action) => {
       };
 
     case types.deleteAppoint:
-      const cita = state.citasPending.appointmentsNoFinish.filter(item => item.id != payload);
+      const cita = state.citasPending.appointmentsNoFinish.filter(
+        (item) => item.id != payload
+      );
       return {
         ...state,
         citasPending: {
-          appointmentsNoFinish: cita
-        }
+          appointmentsNoFinish: cita,
+        },
+      };
+
+    case types.confirmAppoint:
+      const citaDelete = state.citasPending.appointmentsNoFinish.filter(
+        (item) => item.id != payload
+      );
+      return {
+        ...state,
+        citasPending: {
+          appointmentsNoFinish: citaDelete,
+        },
       };
 
     default:

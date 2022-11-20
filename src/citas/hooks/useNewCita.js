@@ -3,8 +3,7 @@ import { useFetch } from "../../hooks/useFetch";
 export const useNewCita = () => {
   const { data, hasError, isLoading, message, getfetch } = useFetch();
 
-  const handleNewAppointment = async (e, datos, handleNewCita) => {
-    e.preventDefault();
+  const handleNewAppointment = async (datos, handleNewCita) => {
     var formdata = new FormData();
     formdata.append("namePatient", datos?.name);
     formdata.append("lastNamePatient", datos?.lastname);
@@ -24,9 +23,7 @@ export const useNewCita = () => {
     const data = await getfetch(
       "https://citasapi.onrender.com/users/create_appointment/",
       requestOptions
-    );  
-
-    console.log(data)
+    );
 
     data.Status && handleNewCita();
   };

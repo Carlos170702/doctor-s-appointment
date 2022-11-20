@@ -1,5 +1,5 @@
 //others
-import { Formik } from 'formik';
+import { Formik, Form, ErrorMessage, Field } from 'formik';
 
 //icons 
 import { FiX } from 'react-icons/fi'
@@ -44,12 +44,12 @@ export const NewCita = ({ handleNewCita }) => {
                             let errors = {};
                             //name
                             if (!values.name) {
-                                errors.nombre = 'Dijita tu nombre '
+                                errors.name = 'Dijita tu nombre '
                             } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name))
-                                errors.nombre = 'El nombre solo puede contener letras y espacios'
+                                errors.name = 'El nombre solo puede contener letras y espacios'
                             //lastname
                             if (!values.lastname) {
-                                errors.lastname = 'Eijita tu apellido '
+                                errors.lastname = 'Dijita tu apellido '
                             } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.lastname))
                                 errors.lastname = 'El apellido solo puede contener letras y espacios'
                             //email
@@ -73,97 +73,85 @@ export const NewCita = ({ handleNewCita }) => {
                             if (!values.description) {
                                 errors.description = 'Dijita una breve descipcion de los sintomas'
                             }
-
                             return errors;
                         }}
 
-                        onSubmit={() => {
+                        onSubmit={ async(values) => {
+                            const error = await handleNewAppointment(values, handleNewCita)
                         }}
                     >
                         {
-                            ({ handleSubmit, handleChange, handleBlur, touched, values, errors }) => (
-                                <form className="newCita__form" onSubmit={handleSubmit}>
+                            ({ errors }) => (
+                                <Form className="newCita__form">
                                     <div className="newCita__data">
                                         <label>Nombre:</label>
-                                        <input
+                                        <Field
                                             type="text"
                                             name='name'
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
                                             placeholder='Escribe tu nombre'
-                                            value={values.name}
                                         />
-                                        {touched.name && errors.nombre && <p className='newCita__msgError' >{errors.nombre}</p>}
+                                        <ErrorMessage name='name' component={() => (
+                                            <p className='newCita__msgError' >{errors.name}</p>
+                                        )} />
                                     </div>
 
                                     <div className="newCita__data">
                                         <label>Apellido:</label>
-                                        <input
+                                        <Field
                                             type="text"
                                             name='lastname'
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
                                             placeholder='Escribe tu apellido'
-                                            value={values.lastname}
                                         />
-                                        {touched.lastname && errors.lastname && <p className='newCita__msgError'>{errors.lastname}</p>}
+                                        <ErrorMessage name='lastname' component={() => (
+                                            <p className='newCita__msgError'>{errors.lastname}</p>
+                                        )} />
                                     </div>
-
                                     <div className="newCita__data">
                                         <label>email:</label>
-                                        <input
+                                        <Field
                                             type="email"
                                             name='email'
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
                                             placeholder='Dijita tu email'
-                                            value={values.email}
                                             readOnly
                                         />
-                                        {touched.email && errors.email && <p className='newCita__msgError' >{errors.email}</p>}
+                                        <ErrorMessage name='email' component={() => (
+                                            <p className='newCita__msgError' >{errors.email}</p>
+                                        )} />
                                     </div>
 
                                     <div className="newCita__data">
                                         <label>Numero de telefono:</label>
-                                        <input
-                                        maxLength={10}
+                                        <Field
+                                            maxLength={10}
                                             type="tel"
-                                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                            aria-required
                                             name='phone'
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
                                             placeholder='Dijita tu numero de telefono'
-                                            value={values.phone}
                                         />
-                                        {touched.phone && errors.phone && <p className='newCita__msgError' >{errors.phone}</p>}
+                                        <ErrorMessage name='phone' component={() => (
+                                            <p className='newCita__msgError' >{errors.phone}</p>
+                                        )} />
                                     </div>
                                     <div className='newCita__date'>
                                         <div className="newCita__data newCita__data--day">
                                             <label>Elige el dia</label>
-                                            <input
+                                            <Field
                                                 type="date"
                                                 name='date'
-                                                onChange={handleChange}
-                                                onBlur={handleBlur}
-                                                value={values.date}
                                             />
-                                            {touched.date && errors.date && <p className='newCita__msgError' >{errors.date}</p>}
+                                            <ErrorMessage name='date' component={() => (
+                                                <p className='newCita__msgError' >{errors.date}</p>
+                                            )} />
                                         </div>
                                         <div className="newCita__data newCita__data--time">
                                             <label>Elige la hora</label>
-                                            <input
+                                            <Field
                                                 type="time"
                                                 name='time'
                                                 list="listalimitestiempo"
-                                                min={9}
-                                                max={16}
-                                                step="600"
-                                                onChange={handleChange}
-                                                onBlur={handleBlur}
-                                                value={values.time}
                                             />
-                                            {touched.time && errors.time && <p className='newCita__msgError' >{errors.time}</p>}
+                                            <ErrorMessage name='time' component={() => (
+                                                <p className='newCita__msgError' >{errors.time}</p>
+                                            )} />
                                         </div>
                                         <datalist id="listalimitestiempo">
                                             <option value="08:00"></option>
@@ -174,16 +162,17 @@ export const NewCita = ({ handleNewCita }) => {
                                     </div>
                                     <div className="newCita__data">
                                         <label>Descripción de los sintomas:</label>
-                                        <textarea
+                                        <Field
+                                            as='textarea'
                                             name="description"
                                             id="descriptio"
                                             placeholder='Escribe una breve descripción'
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            value={values.description}
                                         />
-                                        {touched.description && errors.description && <p className='newCita__msgError'>{errors.description}</p>}
+                                        <ErrorMessage name='description' component={() => (
+                                            <p className='newCita__msgError'>{errors.description}</p>
+                                        )} />
                                     </div>
+
                                     {
                                         message.status && <Message status={data?.Status} message={message} className='login__message' />
                                     }
@@ -191,10 +180,9 @@ export const NewCita = ({ handleNewCita }) => {
                                         <button
                                             type='submit'
                                             className="citas__opcion citas__opcion--confirm"
-                                            onClick={(e) => handleNewAppointment(e, values, handleNewCita)}
                                         >Hacer cita</button>
                                     </div>
-                                </form>
+                                </Form>
                             )
                         }
                     </Formik>

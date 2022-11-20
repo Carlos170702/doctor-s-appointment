@@ -52,11 +52,33 @@ export const AuthProvider = ({ children }) => {
             requestOptions
         );
         const data = await response.json();
-        data.Status && dispatch({ type: types.deleteAppoint, payload: id })
+        data.Status && dispatch({
+            type: types.deleteAppoint,
+            payload: id
+        })
+    }
+
+    const deleteAppointment = async (id) => {
+        const formdata = new FormData();
+        formdata.append("email", JSON.parse(localStorage.getItem('user')).email);
+        const requestOptions = {
+            method: "DELETE",
+            body: formdata,
+        };
+
+        const response = await fetch(
+            `https://citasapi.onrender.com/appointment/appointmentDelete/${id}`,
+            requestOptions
+        );
+        const data = await response.json();
+        data.Status && dispatch({
+            type: types.confirmAppoint,
+            payload: id
+        })
     }
 
     return (
-        <AuthContext.Provider value={{ state, login, logout, getCitasPending, confirmAppointment }}>
+        <AuthContext.Provider value={{ state, login, logout, getCitasPending, confirmAppointment, deleteAppointment }}>
             {children}
         </AuthContext.Provider>
     )

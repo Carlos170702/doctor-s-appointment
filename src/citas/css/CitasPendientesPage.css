@@ -1,47 +1,64 @@
 :root {
-    --fontPrimary: 'Kanit', sans-serif;
-    --fontSecundary: 'Roboto Mono', monospace;
+  --fontPrimary: "Kanit", sans-serif;
+  --fontSecundary: "Roboto Mono", monospace;
 }
 
 .citas {
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 1rem;
-    flex: 1;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
 }
 
 .citas__content {
-    border-radius: 3px;
-    overflow: hidden;
-    height: 500px;
-    width: 100%;
-    background-color: #00000080;
-    box-shadow: 0px 0px 3px 0px #ffffff30;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+  border-radius: 3px;
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+  background-color: #00000080;
+  box-shadow: 0px 0px 3px 0px #ffffff30;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .citas__pendientes {
-    width: 100%;
-    background-color: rgb(197, 197, 197);
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-size: 30px;
-    font-family: var(--fontSecundary);
+  width: 100%;
+  background-color: rgb(197, 197, 197);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 30px;
+  font-family: var(--fontSecundary);
 }
 
 .citas__count {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    height: 100%;
-    overflow-y: scroll;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.citas__empty {
+  color: white;
+  font-size: 1.5rem;
+  margin: 20px;
+  text-align: center;
+}
+
+
+.Error_404{
+  color: white;
+  width: 100%;
+  text-align: center;
+  height: 80vh;  
+  margin: auto;
+  font-size: 50px;
 }

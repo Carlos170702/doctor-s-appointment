@@ -38,8 +38,18 @@ export const Cita = ({ data }) => {
 
                 <button
                     className="citas__opcion citas__opcion--cancel"
+<<<<<<< HEAD
                     onClick={() => deleteAppoint(data.id)}
                 >Cancelar cita</button>
+=======
+                    onClick={deleteAppoint(data.id)}
+                >
+                    Cancelar cita</button>
+                {/* <button
+                    className="citas__opcion citas__opcion--update"
+                >
+                    Actualizar</button> */}
+>>>>>>> 3e1f04810eb848736a4e8e679e89617d6057399e
             </div>
         </div>
     )

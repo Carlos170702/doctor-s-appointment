@@ -77,6 +77,19 @@ export const AuthProvider = ({ children }) => {
         })
     }
 
+    const deleteAppointment = async (id) => {
+        const requestOptions = {
+            method: "DELETE",
+        };
+        const response = await fetch(
+            `https://citasapi.onrender.com/users/finish_appointment/${id}/`,
+            requestOptions
+        );
+        const data = await response.json();
+
+        console.log(data)
+    }
+
     return (
         <AuthContext.Provider value={{ state, login, logout, getCitasPending, confirmAppointment, deleteAppointment }}>
             {children}

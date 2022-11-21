@@ -29,7 +29,11 @@ export const CitasPage = () => {
                             </div>
                         </div>
                     </div>
-                    : <h2 className="Error_404">Error 404 usuario no valido</h2>
+                    : <>
+                        <div>
+                            <h2 className="Error_404">Error 404 usuario no valido</h2>
+                        </div>
+                    </>
             }
         </>
     )

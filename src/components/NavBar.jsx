@@ -21,9 +21,9 @@ export const NavBar = () => {
                 <img src={image} alt="image logo" />
             </div>
             <div className={`NavBar__enlaces ${active ? 'NavBar__enlaces--position' : ''}`}>
-                {rol === 'client' && <Link to={'/client'}>citas</Link>}
+                <Link to={'/client'}>citas</Link>
                 {rol === 'admin' && <Link to={'/pending'}>pendientes</Link>}
-                {rol === 'client' && <Link to={'/Profile'}>perfil</Link>}
+                <Link to={'/Profile'}>perfil</Link>
                 <button
                     onClick={handleLogout}
                     className='NavBar__logout'
